@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    shellcheck:
       docker:
         - image: circleci/node:8.9.0     
       steps:
@@ -10,7 +9,7 @@ jobs:
             command: curl -fL https://getcli.jfrog.io | sh
         - run:
             name: Push to Artifactory
-            branch: master
+            branch: "master"
             command: |
               - ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
               - rm -rf node_modules/
