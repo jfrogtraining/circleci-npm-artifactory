@@ -13,3 +13,7 @@ jobs:
             branch: "master"
             command: ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
         - run: rm -rf node_modules/
+        - run:
+            name: NPM Install
+            command: ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
+
