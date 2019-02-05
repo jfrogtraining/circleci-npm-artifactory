@@ -11,8 +11,9 @@ jobs:
           name: Configure jFrog CLI
           command: ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
       - run:
-          name: Push to Artifactory	
+          name: Push to Artifactory
           command: |
+          - rm -rf node_modules/
           - ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
           - ./jfrog rt bce circleci-npm-artifactory $CIRCLE_BUILD_NUM
           - ./jfrog rt npmp npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
