@@ -2,18 +2,17 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.9.0
-    working_directory: ~/repo      
+      - image: circleci/node:8.9.0     
     steps:
       - run:
           name: Install jFrog CLI
-          commands:
+          command: |
             - curl -fL https://getcli.jfrog.io | sh
             - ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
       - run:
           name: Push to Artifactory
           branch: master
-          commands:
+          command: |
             - rm -rf node_modules/
             - ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
             - ./jfrog rt bce circleci-npm-artifactory $CIRCLE_BUILD_NUM
