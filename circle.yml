@@ -6,7 +6,9 @@ jobs:
       steps:
         - run:
             name: Install jFrog CLI
-            command: curl -fL https://getcli.jfrog.io | sh
+            command: |
+              - wget http://dl.bintray.com/jfrog/jfrog-cli-go/1.7.1/jfrog-cli-linux-amd64/jfrog
+              - chmod +x jfrog
         - run:
             name: Push to Artifactory
             branch: "master"
