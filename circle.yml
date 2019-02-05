@@ -14,7 +14,6 @@ jobs:
           name: Push to Artifactory	
           branch: master	
           command: |
-          -  rm -rf node_modules/
           - ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
           - ./jfrog rt bce circleci-npm-artifactory $CIRCLE_BUILD_NUM
           - ./jfrog rt npmp npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
