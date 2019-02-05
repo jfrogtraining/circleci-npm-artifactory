@@ -15,7 +15,7 @@ jobs:
         - run:
             name: NPM Install
             branch: "master"
-            command: ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
+            command: ./jfrog rt npmi $NPM_REPO --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
         - run:
             name: Collect environment variables and attach them to a build
             branch: "master"
@@ -23,7 +23,7 @@ jobs:
         - run:
             name: Publish NPM to Artifactory
             branch: "master"
-            command: ./jfrog rt npmp npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
+            command: ./jfrog rt npmp $NPM_REPO --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
         - run:
             name: Publish build info to Artifactory
             branch: "master"
