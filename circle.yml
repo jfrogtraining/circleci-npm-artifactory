@@ -11,6 +11,6 @@ jobs:
         - run:
             name: Configure Artifactory
             branch: "master"
-            command: | 
+            command: |
             ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
             rm -rf node_modules/
