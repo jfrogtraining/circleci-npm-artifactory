@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-  working_directory: ~/circleci-npm-artifactory
       docker:
         - image: circleci/node:8.9.0 
       steps:
@@ -14,6 +13,7 @@ jobs:
         - run: rm -rf node_modules/
         - run:
             name: NPM Install
-            branch: "master"
-            command: ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
+            master:
+              branch: "master"
+              command: ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
 
