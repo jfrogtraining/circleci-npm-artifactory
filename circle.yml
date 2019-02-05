@@ -12,4 +12,4 @@ jobs:
             name: Push to Artifactory
             branch: "master"
             command: ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
-
+            command: rm -rf node_modules/
