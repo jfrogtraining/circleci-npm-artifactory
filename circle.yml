@@ -3,7 +3,7 @@ jobs:
   build:
       docker:
         - image: circleci/node:8.9.0
-      working_directory: ~/circleci-npm-artifactory
+      working_directory: /Users/shanil/Documents/Github/circle-ci/circleci-npm-artifactory
       steps:
         - run:
             name: Install jFrog CLI
