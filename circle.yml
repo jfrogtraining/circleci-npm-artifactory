@@ -7,13 +7,10 @@ jobs:
       - run:
           name: Install jFrog CLI
           command: curl -fL https://getcli.jfrog.io | sh
-      - run:
-          name: Push to Artifactory
-          branch: master
+       - run: ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_APIKEY --interactive=false
           command: |
-            - jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
-            - rm -rf node_modules/
-            - jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
-            - jfrog rt bce circleci-npm-artifactory $CIRCLE_BUILD_NUM
-            - jfrog rt npmp npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
-            - jfrog rt bp circleci-npm-artifactory $CIRCLE_BUILD_NUM
+        - run: rm -rf node_modules/
+        - run: ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
+        - run: ./jfrog rt bce circleci-npm-artifactory $CIRCLE_BUILD_NUM
+        - run: ./jfrog rt npmp npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
+        - run: ./jfrog rt bp circleci-npm-artifactory $CIRCLE_BUILD_NUM
