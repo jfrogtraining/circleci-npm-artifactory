@@ -13,7 +13,6 @@ jobs:
         - run: rm -rf node_modules/
         - run:
             name: NPM Install
-            master:
-              branch: "master"
-              command: ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
+            branch: "master"
+            command: ./jfrog rt npmi npm-virtual --build-name=circleci-npm-artifactory --build-number=$CIRCLE_BUILD_NUM
 
