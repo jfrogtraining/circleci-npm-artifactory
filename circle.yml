@@ -6,9 +6,10 @@ jobs:
     steps:
       - run:
           name: Install jFrog CLI
-          command: |
-          - curl -fL https://getcli.jfrog.io | sh
-          - ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
+          command: curl -fL https://getcli.jfrog.io | sh
+      - run:
+          name: Configure jFrog CLI
+          command: ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_PASSWORD --interactive=false
       - run:
           name: Push to Artifactory	
           branch: master	
