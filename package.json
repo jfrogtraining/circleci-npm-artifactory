@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jainishshah17/circleci-npm-artifactory.git"
+    "url": "git+https://github.com/jfrogtraining/circleci-npm-artifactory.git"
   },
   "keywords": [
     "NPM"
   ],
-  "author": "jainish shah",
+  "author": "Shani Levy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jainishshah17/circleci-npm-artifactory/issues"
+    "url": "https://github.com/jfrogtraining/circleci-npm-artifactory/issues"
   },
-  "homepage": "https://github.com/jainishshah17/circleci-npm-artifactory#readme",
+  "homepage": "https://github.com/jfrogtraining/circleci-npm-artifactory#readme",
   "dependencies": {
     "colors": "latest",
     "assert": "latest"
